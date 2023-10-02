@@ -1,0 +1,10 @@
+# IntelliJIDEA
+*.iml
+.idea
+out
+
+# Maven
+target
+
+# *nix
+*.sh
