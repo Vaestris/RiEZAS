@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: riezas
+    password: riezas_psw
+  liquibase:
+    enabled: true
+    change-log: classpath:RiEZAS-db.yaml
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: true
+    show-sql: true
+    open-in-view: false
+  logging:
+    level:
+      org:
+        hibernate:
+          type: trace
