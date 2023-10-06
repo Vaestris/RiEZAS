@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1_user_schema
+      author: Kirill Seleznev
+
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: service_user
+      changes:
+        - createTable:
+            tableName: service_user
+            columns:
+              - column:
+                  name: id
+                  type: UUID
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: service_user_pk
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR(256)
+                  constraints:
+                    nullable: false

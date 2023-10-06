@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: v1_user_role_schema
+      author: Kirill Seleznev
+
+      preConditions:
+        - onFail: MARK_RAN
+        - not:
+            - tableExists:
+                tableName: user_role
+      changes:
+        - createTable:
+            tableName: user_role
+            columns:
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: role_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+
+        - addPrimaryKey:
+            tableName: user_role
+            columnNames: user_id, role_id
+            constraintName: user_role_pk
+
+        - addForeignKeyConstraint:
+            baseTableName: user_role
+            baseColumnNames: user_id
+            referencedTableName: service_user
+            referencedColumnNames: id
+            constraintName: user_branches_fk
+            onDelete: RESTRICT
+            onUpdate: CASCADE
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseTableName: user_role
+            baseColumnNames: role_id
+            referencedTableName: role
+            referencedColumnNames: id
+            constraintName: role_branches_fk
+            onDelete: RESTRICT
+            onUpdate: CASCADE
+            validate: true
