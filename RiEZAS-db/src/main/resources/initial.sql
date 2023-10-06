@@ -1,6 +1,6 @@
 -- create user
-CREATE USER RiEZAS WITH
-    PASSWORD 'RiEZAS_psw';
+CREATE USER riezas WITH
+    PASSWORD 'riezas_psw';
 
 -- create schema
-CREATE SCHEMA AUTHORIZATION RiEZAS;
+CREATE SCHEMA AUTHORIZATION riezas;
