@@ -70,4 +70,9 @@ public class UserController {
         UserDto user = service.findByName(name);
         return ResponseEntity.ok(generateToken(user));
     }
+
+    @GetMapping("/check")
+    public ResponseEntity<?> checkToken() {
+        return ResponseEntity.ok(null);
+    }
 }
