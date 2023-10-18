@@ -11,3 +11,7 @@ databaseChangeLog:
   - include:
       file: 3_user_role_schema.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: 4_client_schema.yaml
+      relativeToChangelogFile: true
